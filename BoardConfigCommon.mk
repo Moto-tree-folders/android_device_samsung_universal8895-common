@@ -75,7 +75,7 @@ TARGET_KERNEL_ARCH := arm64
 TARGET_KERNEL_HEADER_ARCH := arm64
 
 # Kernel config
-TARGET_KERNEL_SOURCE := kernel/samsung/universal8895
+TARGET_KERNEL_SOURCE := kernel/samsung/dreamlte
 
 # Use these flags if the board has a ext4 partition larger than 2gb
 BOARD_HAS_LARGE_FILESYSTEM := true
