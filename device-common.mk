@@ -122,9 +122,7 @@ PRODUCT_PACKAGES += \
     android.hardware.health@2.0-impl \
     android.hardware.health@2.0-service
 
-# HIDL Manifest
-PRODUCT_COPY_FILES += \
-    $(LOCAL_PATH)/manifest.xml:$(TARGET_COPY_OUT_VENDOR)/manifest.xml
+#DEVICE_MANIFEST_FILE := $(TARGET_COPY_OUT_VENDOR)/manifest.xml
 
 # HotwordEnrollement app permissions
 PRODUCT_COPY_FILES += \
@@ -243,7 +241,7 @@ PRODUCT_PACKAGES += \
     libxml2
 
 # SamsungDoze
-PRODUCT_PACKAGES += \
+# PRODUCT_PACKAGES += \
     SamsungDoze
 
 # Seccomp filters
@@ -275,10 +273,6 @@ PRODUCT_COPY_FILES += \
 # TextClassifier
 PRODUCT_PACKAGES += \
     textclassifier.bundle1
-
-# Trust HAL
-PRODUCT_PACKAGES += \
-    vendor.lineage.trust@1.0-service
 
 # USB
 PRODUCT_PACKAGES += \
