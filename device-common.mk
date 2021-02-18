@@ -24,7 +24,10 @@ PRODUCT_PACKAGES += \
     audio.bluetooth.default \
     audio.usb.default \
     audio.r_submix.default \
-    audio.primary.universal8890_32 \
+    libalsautils \
+    libeffects \
+    libspeexresampler \
+    libaudioutils \
     android.hardware.audio.service \
     android.hardware.audio@6.0-impl:32 \
     android.hardware.audio.effect@6.0-impl:32 \
