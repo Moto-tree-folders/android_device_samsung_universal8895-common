@@ -144,6 +144,14 @@ WIFI_HIDL_FEATURE_DISABLE_AP_MAC_RANDOMIZATION := true
 # MACLOADER
 BOARD_HAVE_SAMSUNG_WIFI          := true
 
+PRODUCT_ENFORCE_VINTF_MANIFEST_OVERRIDE := true
+
+# HIDL Manifest
+DEVICE_MANIFEST_FILE := $(COMMON_PATH)/manifest.xml
+
+# Compatibility Matrix
+DEVICE_MATRIX_FILE := $(COMMON_PATH)/compatibility_matrix.xml
+
 # SEPOLICY
 include device/samsung/universal8895-common/sepolicy2/exynos/sepolicy.mk
 
