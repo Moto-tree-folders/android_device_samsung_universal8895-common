@@ -20,27 +20,16 @@ DEVICE_PACKAGE_OVERLAYS += $(LOCAL_PATH)/overlay
 
 # Audio
 PRODUCT_PACKAGES += \
-    android.hardware.audio.common-util \
-    android.hardware.audio.common@2.0-util \
-    android.hardware.audio.common@2.0 \
-    android.hardware.audio.common@4.0-util \
-    android.hardware.audio.common@4.0 \
-    android.hardware.audio.effect@2.0 \
-    android.hardware.audio.effect@4.0 \
-    android.hardware.audio@2.0 \
-    android.hardware.audio@4.0 \
-    android.hardware.soundtrigger@2.0-core \
-    android.hardware.soundtrigger@2.0 \
-    android.hardware.soundtrigger@2.1 \
-    android.hardware.audio@2.0-service \
-    android.hardware.audio.effect@2.0-impl \
-    android.hardware.audio@2.0-impl \
-    android.hardware.soundtrigger@2.0-impl \
-    libalsautils \
-    libeffects \
-    libspeexresampler \
-    libaudioutils \
     audio.a2dp.default \
+    audio.bluetooth.default \
+    audio.usb.default \
+    audio.r_submix.default \
+    audio.primary.universal8890_32 \
+    android.hardware.audio.service \
+    android.hardware.audio@6.0-impl:32 \
+    android.hardware.audio.effect@6.0-impl:32 \
+    android.hardware.audio.effect@2.0-service \
+    android.hardware.bluetooth.audio@2.0-impl:32 \
     libtinycompress
 
 PRODUCT_COPY_FILES += \
@@ -76,7 +65,6 @@ PRODUCT_PACKAGES += \
     android.hardware.camera.device@3.3 \
     android.hardware.camera.device@3.4 \
     android.hardware.camera.provider@2.4 \
-    Snap
 
 # Camera configurations
 PRODUCT_COPY_FILES += \
@@ -89,13 +77,11 @@ PRODUCT_PACKAGES += \
 
 # DRM
 PRODUCT_PACKAGES += \
-    android.hardware.drm@1.0 \
-    android.hardware.drm@1.1 \
+    android.hardware.drm@1.0-impl:32 \
+    android.hardware.drm@1.0-service \
+    android.hardware.drm@1.3-service.clearkey
     libfwdlockengine \
     libdrmclearkeyplugin \
-    android.hardware.drm@1.0-service \
-    android.hardware.drm@1.2-service.clearkey \
-    android.hardware.drm@1.0-impl
 
 # Fingerprint
 PRODUCT_PACKAGES += \
@@ -112,17 +98,21 @@ PRODUCT_PACKAGES += \
 
 # Graphics
 PRODUCT_PACKAGES += \
-    android.hardware.graphics.allocator@2.0-impl \
+    android.hardware.graphics.allocator@2.0-impl:64 \
     android.hardware.graphics.allocator@2.0-service \
-    android.hardware.graphics.composer@2.2-service \
-    android.hardware.graphics.mapper@2.0-impl
+    android.hardware.graphics.composer@2.1-service \
+    android.hardware.graphics.mapper@2.0-impl-2.1
 
 # Health
 PRODUCT_PACKAGES += \
-    android.hardware.health@2.0-impl \
-    android.hardware.health@2.0-service
+    android.hardware.health@2.1-impl \
+    android.hardware.health@2.1-impl.recovery \
+    android.hardware.health@2.1-service
 
-#DEVICE_MANIFEST_FILE := $(TARGET_COPY_OUT_VENDOR)/manifest.xml
+# Filesystem tools for resizing system partitions
+PRODUCT_PACKAGES += \
+    e2fsck_static \
+    resize2fs_static
 
 # HotwordEnrollement app permissions
 PRODUCT_COPY_FILES += \
@@ -143,10 +133,6 @@ PRODUCT_PACKAGES += \
 PRODUCT_PACKAGES += \
     android.hardware.light@2.0-service.samsung
 
-# Livedisplay
-PRODUCT_PACKAGES += \
-    vendor.lineage.livedisplay@2.0-service.universal8895
-
 # LPM
 PRODUCT_PACKAGES += \
     libsuspend
@@ -159,7 +145,8 @@ PRODUCT_COPY_FILES += \
 
 # Memory
 PRODUCT_PACKAGES += \
-    android.hardware.memtrack@1.0-impl
+    android.hardware.memtrack@1.0-impl \
+    android.hardware.memtrack@1.0-service
 
 # NFC
 PRODUCT_PACKAGES += \
@@ -230,15 +217,32 @@ PRODUCT_PACKAGES += \
 PRODUCT_PACKAGES += \
     android.hardware.renderscript@1.0-impl
 
+# HIDL
+PRODUCT_PACKAGES += \
+    android.hidl.base@1.0 \
+    android.hidl.manager@1.0 \
+    libhidltransport \
+    libhidltransport.vendor \
+    libhwbinder \
+    libhwbinder.vendor
+
 # RIL
 PRODUCT_PACKAGES += \
-    android.hardware.radio.config@1.0 \
-    android.hardware.radio.config@1.1 \
-    android.hardware.radio.config@1.2 \
     android.hardware.radio@1.2 \
     android.hardware.radio@1.3 \
     android.hardware.radio@1.4 \
-    libxml2
+    android.hardware.radio.config@1.0 \
+    android.hardware.radio.config@1.1 \
+    android.hardware.radio.config@1.2 \
+    init.baseband.rc \
+    libxml2 \
+    libprotobuf-cpp-full
+
+# RCS
+PRODUCT_PACKAGES += \
+    com.android.ims.rcsmanager \
+    PresencePolling \
+    RcsService
 
 # SamsungDoze
 # PRODUCT_PACKAGES += \
@@ -277,10 +281,6 @@ PRODUCT_PACKAGES += \
 # USB
 PRODUCT_PACKAGES += \
     android.hardware.usb@1.0-service.basic
-
-# Vendor security patch level
-PRODUCT_PROPERTY_OVERRIDES += \
-    ro.lineage.build.vendor_security_patch=2020-04-01
 
 # Vibrator
 PRODUCT_PACKAGES += \
